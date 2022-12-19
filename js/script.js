@@ -27,7 +27,18 @@ function wordCounter(text) {
   return wordCount;
 }
 
-
+function offensiveWordFilter(offensiveWords, text){
+  const array = text.split(" ");
+  let emptyArray= [];
+  array.forEach(function(element){
+      if( offensiveWords.includes( punctuationRemover(element))){
+          emptyArray.push("****")
+      }else{
+          emptyArray.push(element)
+      }
+  });
+  return emptyArray.join(" ");
+}
 
 
 
